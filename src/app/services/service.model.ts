@@ -14,6 +14,7 @@ export interface ResponseProduct {
     data: Product[];
 }
 
+//Modelo de criação
 export interface Register {
     code: number; 
     name: string;

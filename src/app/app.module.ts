@@ -6,9 +6,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProductComponent } from './product/product.component';
 import { RegisterComponent } from './register/register.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { StorageServiceModule } from 'ngx-webstorage-service';
-
-import { ProductService } from './services/service.service';
 
 @NgModule({
   declarations: [
@@ -20,12 +19,11 @@ import { ProductService } from './services/service.service';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    HttpClientModule,
     FormsModule,
     StorageServiceModule
   ],
-  providers: [
-    ProductService,
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

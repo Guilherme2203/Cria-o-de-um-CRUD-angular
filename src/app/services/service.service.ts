@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Product } from './service.model';
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { ResponseProduct, Register, ResponseRegister } from './service.model';
 import { LOCAL_STORAGE, StorageService } from 'ngx-webstorage-service';
 
 @Injectable({
@@ -7,17 +9,15 @@ import { LOCAL_STORAGE, StorageService } from 'ngx-webstorage-service';
 })
 export class ProductService {
 
-  products: Product[]; 
+  private url = "http://localhost:4200/product"; 
   
-  constructor() {
-    this.products = [];
-   }
+  constructor(private http: HttpClient) { }
 
-  getProduct(){
-    return this.products;
+  getProduct(): Observable<ResponseProduct>{
+    return this.http.get<ResponseProduct>(this.url);
   }
 
-  createRegister(){
-    this.products.push();
+  createRegister(request: Register): Observable<ResponseRegister>{
+    return this.http.post<ResponseRegister>(this.url, request);
   }
 }
