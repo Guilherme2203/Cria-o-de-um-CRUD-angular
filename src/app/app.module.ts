@@ -6,7 +6,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProductComponent } from './product/product.component';
 import { RegisterComponent } from './register/register.component';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { StorageServiceModule } from 'ngx-webstorage-service';
 
 @NgModule({
@@ -19,7 +18,6 @@ import { StorageServiceModule } from 'ngx-webstorage-service';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule,
     FormsModule,
     StorageServiceModule
   ],

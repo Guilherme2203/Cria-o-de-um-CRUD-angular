@@ -7,10 +7,6 @@ export interface Product {
 }
 
 export interface ResponseProduct {
-    page: number;
-    perPage: number;
-    total: number;
-    totalPages: number;
     data: Product[];
 }
 

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductService } from '../services/service.service';
+import { LocalStorageService } from '../services/service.service';
 import { ResponseProduct, ResponseRegister } from '../services/service.model';
 
 @Component({
@@ -12,10 +12,10 @@ export class ProductComponent implements OnInit {
   responseProduct: ResponseProduct;
   response: ResponseRegister;
   
-  constructor(private productService: ProductService) { }
+  constructor(private localStorageService: LocalStorageService) { }
 
   ngOnInit() {
-    this.productService.getProduct()
+    this.localStorageService.getProduct()
     .subscribe(res => this.responseProduct = res)
   }
 

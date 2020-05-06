@@ -1,23 +1,27 @@
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { Inject, Injectable } from '@angular/core';
 import { ResponseProduct, Register, ResponseRegister } from './service.model';
 import { LOCAL_STORAGE, StorageService } from 'ngx-webstorage-service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ProductService {
+export class LocalStorageService {
 
-  private url = "http://localhost:4200/product"; 
+  anotherTodoList = [];
   
-  constructor(private http: HttpClient) { }
+  constructor(@Inject(LOCAL_STORAGE) private storage: StorageService) { }
 
-  getProduct(): Observable<ResponseProduct>{
-    return this.http.get<ResponseProduct>(this.url);
-  }
-
-  createRegister(request: Register): Observable<ResponseRegister>{
-    return this.http.post<ResponseRegister>(this.url, request);
+  public storeOnLocalStorage(taskTitle: string): void {
+          
+    // get array of tasks from local storage
+    const currentTodoList = this.storage.get(STORAGE_KEY) || [];
+    // push new task to array
+    currentTodoList.push({
+        title: taskTitle,
+        isChecked: false 
+    });
+    // insert updated array to local storage
+    this.storage.set(STORAGE_KEY, currentTodoList);
+    console.log(this.storage.get(STORAGE_KEY) || 'LocaL storage is empty');
   }
 }

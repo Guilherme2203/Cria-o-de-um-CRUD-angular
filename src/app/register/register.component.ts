@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ResponseRegister } from '../services/service.model';
-import { ProductService } from '../services/service.service';
+import { LocalStorageService } from '../services/service.service';
 import { Register } from '../services/service.model';
 
 @Component({
@@ -22,14 +22,14 @@ export class RegisterComponent implements OnInit {
 
   response: ResponseRegister;
 
-  constructor(public productService: ProductService) { }
-
-  ngOnInit() {
-    this.registers = this.productService.getProduct();
-  }
+  constructor(private localStorageService: LocalStorageService) {}
+    ngOnInit(): void {
+         const newTodo = 'new todo'; 
+         this.localStorageService.storeOnLocalStorage(newTodo);
+    }
 
   save(){
-    this.productService.createRegister(this.request)
+    this.localStorageService.createRegister(this.request)
     .subscribe(res =>{
       this.response = res;
     });
