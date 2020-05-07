@@ -6,12 +6,12 @@
           <div class="form-group col-md-6">
             <label>Codigo produtos</label>
             <input type="name" class="form-control"
-              [(ngModel)]="request.code" placeholder="Codigo do produto" [ngModelOptions]="{standalone: true}"
+              [(ngModel)]="produtos.code" placeholder="Codigo do produto" [ngModelOptions]="{standalone: true}"
             />
           </div>
           <div class="form-group col-md-4">
             <label>Nome</label>
-            <input [(ngModel)]="request.name" type="text" class="form-control" aria-label="Text input with dropdown button"
+            <input [(ngModel)]="produtos.name" type="text" class="form-control" aria-label="Text input with dropdown button"
               placeholder="Nome do produto" [ngModelOptions]="{standalone: true}"/>
           </div>
           <div class="dropdown col-md-2">
@@ -34,7 +34,7 @@
             <div class="input-group-prepend">
               <span class="input-group-text">R$</span>
             </div>
-            <input [(ngModel)]="request.value" [ngModelOptions]="{standalone: true}" type="text" aria-label="Amount"
+            <input [(ngModel)]="produtos.value" [ngModelOptions]="{standalone: true}" type="text" aria-label="Amount"
               placeholder="Escreva o valor"/>
             <div class="input-group-prepend">
               <span class="input-group-text">.00</span>
@@ -44,7 +44,7 @@
         <div class="form-group">
           <label>Example textarea</label>
           <textarea class="form-control"
-          [(ngModel)]="request.text" [ngModelOptions]="{standalone: true}" rows="2"
+          [(ngModel)]="produtos.text" [ngModelOptions]="{standalone: true}" rows="2"
           ></textarea>
         </div>
         <div class="d-flex justify-content-end">

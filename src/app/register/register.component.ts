@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ResponseRegister } from '../services/service.model';
 import { LocalStorageService } from '../services/service.service';
-import { Register } from '../services/service.model';
+import { Product } from '../services/service.model';
 
 @Component({
   selector: 'app-register',
@@ -11,15 +10,7 @@ import { Register } from '../services/service.model';
 
 export class RegisterComponent implements OnInit {  
 
-  request: Register = {
-    code: 1,
-    name: '',
-    dropdown: '',
-    value: '',
-    text: ''
-  }
-
-  registers: ResponseRegister;
+  registers: Product[];
 
   constructor(private localStorageService: LocalStorageService) {}
     
@@ -29,10 +20,7 @@ export class RegisterComponent implements OnInit {
     }
 
     storeOnLocalStorage(){
-      this.localStorageService.storeOnLocalStorage(this.request)
-      .subscribe(res =>{
-        this.registers = res;
-      });
+      this.localStorageService.storeOnLocalStorage(this.registers)
     }
 
 }

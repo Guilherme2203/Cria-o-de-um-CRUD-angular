@@ -1,18 +1,30 @@
 import { Component, OnInit } from '@angular/core';
 import { LocalStorageService } from '../services/service.service';
+import { Product } from '../services/service.model';
 
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
-  styleUrls: ['./product.component.css']
+  styleUrls: ['./product.component.css'],
 })
 export class ProductComponent implements OnInit {
   
-  constructor(private localStorageService: LocalStorageService) { }
+  products: Product[];
+  product : Product;
+
+  constructor(public localStorageService: LocalStorageService) {}
 
   ngOnInit(): void {
-    const newTodo = 'new todo'; 
-    this.localStorageService.storeOnLocalStorage(newTodo);
+    this.refresh();
   }
 
+  add() {
+    console.log(this.product);
+    this.localStorageService.set(this.product);
+    this.refresh();
+  }
+
+  refresh(){
+    this.products = this.localStorageService.get('products');
+  }
 }

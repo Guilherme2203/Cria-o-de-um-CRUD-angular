@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <table *ngIf="responseProduct" class="table table-bordered table-dark">
+    <table *ngIf="task" class="table table-bordered table-dark">
       <thead class="thead-light">
         <tr>
           <th scope="col">Ações</th>
@@ -12,12 +12,13 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor='let product of responseProduct.data'>
-          <th scope="row"><a routerLink="#">edit</a><a routerLink="#">delete</a></th>
-          <td>{{response.code}}</td>
-          <td>{{response.name}}</td>
-          <td>{{response.value}}</td>
-          <td>{{response.text}}</td>
+        <tr *ngFor='let p of products'>
+          <th scope="row"><button class="btn btn-info">Edit</button>
+            <button class="btn btn-danger">Delete</button></th>
+          <td>{{p.code}}</td>
+          <td>{{p.name}}</td>
+          <td>{{p.value}}</td>
+          <td>{{p.text}}</td>
           <td><div class="form-check">
             <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
             <label class="form-check-label" for="defaultCheck1">Marcar produto</label>
@@ -29,23 +30,23 @@
   <div class="d-flex justify-content-end">
     <button type="submit" class="btn btn-primary">Confirmar</button>
   </div>
+  <nav class="d-flex justify-content-center" aria-label="Page navigation example">
+    <ul class="pagination">
+      <li class="page-item">
+        <a class="page-link" href="#" aria-label="Previous">
+          <span aria-hidden="true">&laquo;</span>
+          <span class="sr-only">Previous</span>
+        </a>
+      </li>
+      <li class="page-item"><a class="page-link" href="#">1</a></li>
+      <li class="page-item"><a class="page-link" href="#">2</a></li>
+      <li class="page-item"><a class="page-link" href="#">3</a></li>
+      <li class="page-item">
+        <a class="page-link" href="#" aria-label="Next">
+          <span aria-hidden="true">&raquo;</span>
+          <span class="sr-only">Next</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
 </div>
-<nav class="d-flex justify-content-center" aria-label="Page navigation example">
-  <ul class="pagination">
-    <li class="page-item">
-      <a class="page-link" href="#" aria-label="Previous">
-        <span aria-hidden="true">&laquo;</span>
-        <span class="sr-only">Previous</span>
-      </a>
-    </li>
-    <li class="page-item"><a class="page-link" href="#">1</a></li>
-    <li class="page-item"><a class="page-link" href="#">2</a></li>
-    <li class="page-item"><a class="page-link" href="#">3</a></li>
-    <li class="page-item">
-      <a class="page-link" href="#" aria-label="Next">
-        <span aria-hidden="true">&raquo;</span>
-        <span class="sr-only">Next</span>
-      </a>
-    </li>
-  </ul>
-</nav>
