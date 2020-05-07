@@ -10,17 +10,33 @@ import { Product } from '../services/service.model';
 
 export class RegisterComponent implements OnInit {  
 
-  registers: Product[];
+  new: Product = {
+    code: 0,
+    name: '',
+    dropdown: '',
+    value: '',
+    text: ''
+  }
 
-  constructor(private localStorageService: LocalStorageService) {}
+  constructor(public localStorageService: LocalStorageService) {}
     
     ngOnInit(): void {
-         const newTodo = 'new todo'; 
-         this.localStorageService.storeOnLocalStorage(newTodo);
+      this.refresh();
     }
 
-    storeOnLocalStorage(){
-      this.localStorageService.storeOnLocalStorage(this.registers)
+    save(){
+      this.localStorageService.set(this.new);
+      this.refresh()
+    }
+
+    refresh(){
+      this.new = {
+        code: 0,
+        name: '',
+        dropdown: '',
+        value: '',
+        text: ''
+      };
     }
 
 }
