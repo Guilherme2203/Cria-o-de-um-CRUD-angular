@@ -18,7 +18,6 @@ import { StorageServiceModule } from 'ngx-webstorage-service';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    FormsModule,
     StorageServiceModule
   ],
   providers: [],

@@ -20,14 +20,13 @@ export class LocalStorageService {
     return this.storage.get(name) || [];
   }
 
-  public delete(product: any){
-
+  public delete(product: any) {
     const array = this.get('products');
 
-    for(let i; i < array.length; i++){
-      if(product == array[i]){
-        array.splice(i, 1);
-      }
-    }
+    array.forEach((element, index) => {
+      if (element.code === product.code) array.splice(index, 1);
+    });
+
+    this.storage.set('products', array);
   }
 }

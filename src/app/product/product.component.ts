@@ -8,13 +8,13 @@ import { Product } from '../services/service.model';
   styleUrls: ['./product.component.css'],
 })
 export class ProductComponent implements OnInit {
-  
   products: Product[];
-  product : Product;
+  product: Product;
 
   constructor(public localStorageService: LocalStorageService) {}
 
   ngOnInit(): void {
+    console.log(this.localStorageService);
     this.refresh();
   }
 
@@ -24,11 +24,12 @@ export class ProductComponent implements OnInit {
     this.refresh();
   }
 
-  refresh(){
+  refresh() {
     this.products = this.localStorageService.get('products');
   }
 
-  delete(product: Product){
+  delete(product: Product) {
     this.localStorageService.delete(product);
+    this.refresh();
   }
 }

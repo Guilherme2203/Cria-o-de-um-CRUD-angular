@@ -1,55 +1,69 @@
-<form>
-  <div class="container">
-    <div class="row">
-      <div class="container-fluid">
-        <div class="form-row">
-          <div class="form-group col-md-6">
-            <label>Codigo produtos</label>
-            <input type="name" class="form-control"
-              [(ngModel)]="new.code" placeholder="Codigo do produto" [ngModelOptions]="{standalone: true}"/>
-          </div>
-          <div class="form-group col-md-4">
-            <label>Nome</label>
-            <input [(ngModel)]="new.name" type="text" class="form-control" aria-label="Text input with dropdown button"
-              placeholder="Nome do produto" [ngModelOptions]="{standalone: true}"/>
-          </div>
-          <div class="dropdown col-md-2">
-            <label>Tipo do Produto</label>
-            <button id="dropdown" class="btn btn-secondary dropdown-toggle" type="button"
-              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-              >Selecionar</button>
-            <div class="dropdown-menu">
-              <a class="dropdown-item" [(ngModel)]="new.dropdown" [ngModelOptions]="{standalone: true}">Tipo1</a>
-              <a class="dropdown-item" [(ngModel)]="new.dropdown" [ngModelOptions]="{standalone: true}">Tipo2</a>
-              <a class="dropdown-item" [(ngModel)]="new.dropdown" [ngModelOptions]="{standalone: true}">Tipo3</a>
-              <div role="separator" class="dropdown-divider"></div>
-              <a class="dropdown-item" [(ngModel)]="new.dropdown" [ngModelOptions]="{standalone: true}">Outros tipos</a>
-            </div>
-          </div>
+<div class="container">
+  <div class="row">
+    <div class="container-fluid">
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label>Codigo produtos</label>
+          <input type="text"
+            class="form-control"
+            [(ngModel)]="new.code"
+            placeholder="Codigo do produto"
+            [ngModelOptions]="{ standalone: true }"
+          />
         </div>
-        <div>
-          <label>Valor do Produto</label>
-          <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <span class="input-group-text">R$</span>
-            </div>
-            <input [(ngModel)]="new.value" [ngModelOptions]="{standalone: true}" type="text" aria-label="Amount"
-              placeholder="Escreva o valor"/>
-            <div class="input-group-prepend">
-              <span class="input-group-text">.00</span>
-            </div>
+        <div class="form-group col-md-4">
+          <label>Nome</label>
+          <input [(ngModel)]="new.name"
+            type="text" class="form-control"
+            aria-label="Text input with dropdown button"
+            placeholder="Nome do produto"
+            [ngModelOptions]="{ standalone: true }"
+          />
+        </div>
+        <div class="dropdown col-md-2">
+          <div class="form-group">
+            <label for="status">Tipo do Produto</label>
+            <select class="form-control" name="status" [(ngModel)]="new.dropdown">
+              <option value="" selected>Selecionar tipo</option>
+              <option *ngFor="let type of types"
+                [value]="type" [selected]="type">{{ type }}
+              </option>
+            </select>
           </div>
         </div>
-        <div class="form-group">
-          <label>Descrição</label>
-          <textarea class="form-control"
-          [(ngModel)]="new.text" [ngModelOptions]="{standalone: true}" rows="2"
-          ></textarea>
+      </div>
+      <div>
+        <label>Valor do Produto</label>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text">R$</span>
+          </div>
+          <input
+            [(ngModel)]="new.value"
+            [ngModelOptions]="{ standalone: true }"
+            type="text"
+            aria-label="Amount"
+            placeholder="Escreva o valor"
+          />
+          <div class="input-group-prepend">
+            <span class="input-group-text">.00</span>
+          </div>
         </div>
-        <div class="d-flex justify-content-end">
-          <button (click)="save()" type="submit" class="btn btn-primary">Confirmar cadastro</button>
-        </div>
+      </div>
+      <div class="form-group">
+        <label>Descrição</label>
+        <textarea
+          class="form-control"
+          [(ngModel)]="new.text"
+          [ngModelOptions]="{ standalone: true }"
+          rows="2"
+        ></textarea>
+      </div>
+      <div class="d-flex justify-content-end">
+        <button (click)="save()" class="btn btn-primary">
+          Confirmar cadastro
+        </button>
       </div>
     </div>
   </div>
-</form>
+</div>
