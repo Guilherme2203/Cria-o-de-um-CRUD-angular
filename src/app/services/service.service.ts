@@ -1,5 +1,4 @@
 import { Inject, Injectable } from '@angular/core';
-import { ResponseProduct, Register, ResponseRegister } from './service.model';
 import { LOCAL_STORAGE, StorageService } from 'ngx-webstorage-service';
 
 @Injectable({
@@ -17,8 +16,11 @@ export class LocalStorageService {
     const currentTodoList = this.storage.get(STORAGE_KEY) || [];
     // push new task to array
     currentTodoList.push({
-        title: taskTitle,
-        isChecked: false 
+      code: 1,
+      name: '',
+      dropdown: '',
+      value: '',
+      text: ''
     });
     // insert updated array to local storage
     this.storage.set(STORAGE_KEY, currentTodoList);

@@ -8,6 +8,7 @@ import { Register } from '../services/service.model';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
+
 export class RegisterComponent implements OnInit {  
 
   request: Register = {
@@ -18,21 +19,20 @@ export class RegisterComponent implements OnInit {
     text: ''
   }
 
-  registers: Register[];
-
-  response: ResponseRegister;
+  registers: ResponseRegister;
 
   constructor(private localStorageService: LocalStorageService) {}
+    
     ngOnInit(): void {
          const newTodo = 'new todo'; 
          this.localStorageService.storeOnLocalStorage(newTodo);
     }
 
-  save(){
-    this.localStorageService.createRegister(this.request)
-    .subscribe(res =>{
-      this.response = res;
-    });
-  }
+    storeOnLocalStorage(){
+      this.localStorageService.storeOnLocalStorage(this.request)
+      .subscribe(res =>{
+        this.registers = res;
+      });
+    }
 
 }
