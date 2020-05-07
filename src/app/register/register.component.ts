@@ -21,7 +21,6 @@ export class RegisterComponent implements OnInit {
   constructor(public localStorageService: LocalStorageService) {}
     
     ngOnInit(): void {
-      this.refresh();
     }
 
     save(){

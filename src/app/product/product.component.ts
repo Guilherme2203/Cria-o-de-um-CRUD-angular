@@ -27,4 +27,8 @@ export class ProductComponent implements OnInit {
   refresh(){
     this.products = this.localStorageService.get('products');
   }
+
+  delete(product: Product){
+    this.localStorageService.delete(product);
+  }
 }

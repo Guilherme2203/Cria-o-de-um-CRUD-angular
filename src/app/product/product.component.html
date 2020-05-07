@@ -8,15 +8,17 @@
           <th scope="col">Nome</th>
           <th scope="col">Tipo produto</th>
           <th scope="col">Valor</th>
-          <th scope="col">Selecionar produto</th>
+          <th scope="col">Descrição</th>
+          <th scope="col">Selecione um produto</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor='let p of products'>
-          <th scope="row"><button class="btn btn-info">Edit</button>
-            <button class="btn btn-danger">Delete</button></th>
+          <th scope="row"><button class="btn btn-outline-primary md-2">Edit</button>
+            <button class="btn btn-outline-danger md-2" (click)="delete(p)">Delete</button></th>
           <td>{{p.code}}</td>
           <td>{{p.name}}</td>
+          <td>{{p.dropdown}}</td>
           <td>{{p.value}}</td>
           <td>{{p.text}}</td>
           <td><div class="form-check">
