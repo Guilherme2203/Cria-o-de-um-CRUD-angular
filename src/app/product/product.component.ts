@@ -32,4 +32,9 @@ export class ProductComponent implements OnInit {
     this.localStorageService.delete(product);
     this.refresh();
   }
+
+  update(product: Product){
+    this.localStorageService.update(product);
+    this.refresh();
+  }
 }
