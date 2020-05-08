@@ -25,8 +25,12 @@ export class LocalStorageService {
 
     array.forEach((element, index) => {
       if (element.code === product.code) array.splice(index, 1);
-    });
+    }); 
 
     this.storage.set('products', array);
+  }
+
+  public update(product: any){
+
   }
 }

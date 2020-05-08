@@ -14,8 +14,10 @@
       </thead>
       <tbody>
         <tr *ngFor='let p of products'>
-          <th scope="row"><button class="btn btn-outline-primary md-2">Edit</button>
-            <button class="btn btn-outline-danger md-2" (click)="delete(p)">Delete</button></th>
+          <th scope="row">
+            <button class="btn btn-outline-primary md-2" (click)="update(p)">Edit</button>
+            <button class="btn btn-outline-danger md-2" (click)="delete(p)">Delete</button>
+          </th>
           <td>{{p.code}}</td>
           <td>{{p.name}}</td>
           <td>{{p.dropdown}}</td>
