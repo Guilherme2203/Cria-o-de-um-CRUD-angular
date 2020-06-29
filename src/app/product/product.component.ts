@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LocalStorageService } from '../services/service.service';
 import { Product } from '../services/service.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product',
@@ -10,8 +11,10 @@ import { Product } from '../services/service.model';
 export class ProductComponent implements OnInit {
   products: Product[];
   product: Product;
+  key: string = '';
 
-  constructor(public localStorageService: LocalStorageService) {}
+  constructor(public localStorageService: LocalStorageService,
+              private router: Router) {}
 
   ngOnInit(): void {
     console.log(this.localStorageService);
@@ -34,7 +37,8 @@ export class ProductComponent implements OnInit {
   }
 
   update(product: Product){
-    this.localStorageService.update(product);
+    console.log(product);
     this.refresh();
+    this.router.navigate(['register']);
   }
 }
