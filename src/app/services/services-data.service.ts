@@ -19,4 +19,5 @@ export class ServicesDataService {
   clear() {
     this.productAtual = null;
   }
+
 }

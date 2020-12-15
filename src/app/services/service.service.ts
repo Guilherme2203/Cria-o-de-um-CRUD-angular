@@ -33,4 +33,5 @@ export class LocalStorageService {
   public update(product: any) {
     return this.storage.get('product').update(product);
   }
+
 }

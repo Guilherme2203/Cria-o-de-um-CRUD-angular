@@ -30,9 +30,9 @@ export class RegisterComponent implements OnInit {
   }
 
   newRegister() {
-    if (this._servicesDataService.productAtual == null) return;
+    if (!this._servicesDataService.productAtual) return;
 
-    this._servicesDataService.productAtual.subscribe((data) => {
+    this._servicesDataService.productAtual.subscribe(data => {
       if (!data.product || !data.key) return;
       this.new = this.setValues(this.product, data.product);
       this.key = data.key;
@@ -55,7 +55,6 @@ export class RegisterComponent implements OnInit {
   }
 
   public onChange(event): void {
-    console.log(event.target.value);
     this.new.dropdown = event.target.value;
   }
 
@@ -65,4 +64,5 @@ export class RegisterComponent implements OnInit {
     }
     return destiny;
   }
+
 }

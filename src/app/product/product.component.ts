@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 import { LocalStorageService } from '../services/service.service';
 import { Product } from '../services/service.model';
 import { Router } from '@angular/router';
@@ -13,16 +14,16 @@ export class ProductComponent implements OnInit {
   product: Product;
   key: string = '';
 
-  constructor(public localStorageService: LocalStorageService,
-              private router: Router) {}
+  constructor(
+    public localStorageService: LocalStorageService,
+    private router: Router,
+  ) {}
 
   ngOnInit(): void {
-    console.log(this.localStorageService);
     this.refresh();
   }
 
   add() {
-    console.log(this.product);
     this.localStorageService.set(this.product);
     this.refresh();
   }
@@ -36,9 +37,9 @@ export class ProductComponent implements OnInit {
     this.refresh();
   }
 
-  update(product: Product){
-    console.log(product);
+  update(product: Product) {
     this.refresh();
     this.router.navigate(['register']);
   }
+
 }
